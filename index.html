@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Small Corner for You</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="design/style.css" />
+</head>
+<body>
+  <!-- Subtle ambient floating petals -->
+  <div class="petals-container" id="petalsContainer" aria-hidden="true"></div>
+
+  <!-- Optional soft ambient chime toggle -->
+  <button class="music-toggle" id="musicToggle" type="button" aria-label="Toggle ambient sound">
+    <span class="music-dot" id="musicDot"></span>
+    <span id="musicLabel">Ambient Off</span>
+  </button>
+
+  <main class="app-shell">
+    <!-- SCREEN 1: Soft Landing -->
+    <section class="screen active" id="screen-landing">
+      <div class="glass-card landing-card">
+        <span class="tag-pill">For You</span>
+        <h1 class="title">Hey <span id="herNameDisplay">there</span>,</h1>
+        <p class="subtitle">
+          No rush at all—just wanted to leave this small corner here for you along with the flowers.
+        </p>
+
+        <div class="envelope-wrapper" id="openEnvelopeBtn" role="button" tabindex="0" aria-label="Open letter">
+          <div class="envelope">
+            <div class="envelope-flap"></div>
+            <div class="envelope-body">
+              <div class="wax-seal">❤</div>
+            </div>
+          </div>
+          <span class="tap-hint">Tap the seal to open</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 2: The 3-Beat Taglish Love Letter -->
+    <section class="screen" id="screen-letter">
+      <div class="glass-card letter-card">
+        <div class="progress-dots">
+          <span class="dot active" data-beat="0"></span>
+          <span class="dot" data-beat="1"></span>
+          <span class="dot" data-beat="2"></span>
+        </div>
+
+        <div class="letter-beats">
+          <!-- Beat 1 -->
+          <article class="beat active" data-beat="0">
+            <p class="beat-label">01 / Honest Note</p>
+            <h2>You're so beautiful.</h2>
+            <p class="letter-text">
+              Nothing complicated—just something genuine. Even though we haven't met in person yet, you've already given me a reason to smile whenever we talk. So instead of sending an ordinary message, 
+              I wanted to create something small and personal, something that hopefully makes your day a little brighter.
+              Sometimes, the simplest gestures can say a little more than words.
+            </p>
+          </article>
+
+          <!-- Beat 2 -->
+          <article class="beat" data-beat="1">
+            <p class="beat-label">02 / Beyond First Impressions</p>
+            <h2>I want to know you better.</h2>
+            <p class="letter-text">
+              As much as I'd love to know more about the pretty person behind the screen, I'm even more curious about the little things that make you who you are. What makes you laugh, your favorite comfort food, the songs you always find yourself listening to, and the simple things that make your day better.
+
+I guess there's still so much I'd love to discover about you, and I'd be happy to get to know you one little detail at a time.
+            </p>
+          </article>
+
+          <!-- Beat 3 -->
+          <article class="beat" data-beat="2">
+            <p class="beat-label">03 / Zero Pressure</p>
+            <h2>Take your time.</h2>
+            <p class="letter-text">
+              There's absolutely no pressure or expectations. I hope you enjoy the flowers first!
+
+But if you have a little time, there's a small surprise waiting on the next page. I made a tiny 5-card game just for you—not to test you, but to discover a few little things about you that I wouldn't normally get to know through an ordinary conversation.
+
+Take your time, enjoy it, and have fun!
+            </p>
+          </article>
+        </div>
+
+        <div class="nav-row">
+          <button class="btn btn-ghost" id="prevBeatBtn" type="button" disabled>Back</button>
+          <button class="btn btn-primary" id="nextBeatBtn" type="button">Next</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 3: Interactive 5-Card "Get to Know You" Deck -->
+    <section class="screen" id="screen-quiz">
+      <div class="glass-card quiz-card">
+        <div class="quiz-header">
+          <span class="tag-pill" id="cardCounter">Card 1 of 5</span>
+          <button class="text-link" id="backToLetterBtn" type="button">Re-read Letter</button>
+        </div>
+
+        <div id="questionContainer" class="question-container">
+          <!-- Rendered dynamically by script.js -->
+        </div>
+
+        <div class="nav-row">
+          <button class="btn btn-ghost" id="prevCardBtn" type="button">Previous</button>
+          <button class="btn btn-primary" id="nextCardBtn" type="button">Next Card</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 4: Keepsake Summary & Reply -->
+    <section class="screen" id="screen-summary">
+      <div class="glass-card summary-card">
+        <span class="tag-pill">Keepsake Summary</span>
+        <h2>Thanks for sharing a piece of you.</h2>
+        <p class="subtitle">
+          Enjoy the flowers—and whenever you're free, coffee or snacks are on me.
+        </p>
+
+        <div class="summary-list" id="summaryList">
+          <!-- Populated dynamically -->
+        </div>
+
+        <div class="summary-actions">
+          <button class="btn btn-primary full-width" id="copyAnswersBtn" type="button">
+            Copy Answers to Send Back
+          </button>
+          <button class="btn btn-ghost full-width" id="editAnswersBtn" type="button">
+            Edit My Answers
+          </button>
+        </div>
+        <p class="copy-feedback" id="copyFeedback" role="status"></p>
+      </div>
+    </section>
+  </main>
+
+  <script src="script/script.js"></script>
+</body>
+</html>
